@@ -13,11 +13,11 @@ extern NSString *const kEncodedColorDictionaryRedComponent;
 extern NSString *const kEncodedColorDictionaryGreenComponent;
 extern NSString *const kEncodedColorDictionaryBlueComponent;
 extern NSString *const kEncodedColorDictionaryAlphaComponent;  // Optional, defaults to 1.0
-extern NSString *const kEncodedColorDictionaryColorSpace;  // Optional, defaults to calibrated
+extern NSString *const kEncodedColorDictionaryColorSpace;  // Optional, defaults to device
 
 // Values for kEncodedColorDictionaryColorSpace key
 extern NSString *const kEncodedColorDictionarySRGBColorSpace;
-extern NSString *const kEncodedColorDictionaryCalibratedColorSpace;
+extern NSString *const kEncodedColorDictionaryDeviceColorSpace;
 
 @interface NSColor (iTerm)
 
@@ -33,7 +33,7 @@ extern NSString *const kEncodedColorDictionaryCalibratedColorSpace;
               backgroundGreen:(CGFloat)bgGreen
                backgroundBlue:(CGFloat)bgBlue;
 
-+ (NSColor *)calibratedColorWithRed:(double)r
++ (NSColor *)deviceColorWithRed:(double)r
                               green:(double)g
                                blue:(double)b
                               alpha:(double)a

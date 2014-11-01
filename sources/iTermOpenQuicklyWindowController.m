@@ -74,7 +74,7 @@
     contentView.wantsLayer = YES;
     contentView.layer.cornerRadius = 6;
     contentView.layer.masksToBounds = YES;
-    contentView.layer.borderColor = [[NSColor colorWithCalibratedRed:0.75 green:0.75 blue:0.75 alpha:1] CGColor];
+    contentView.layer.borderColor = [[NSColor colorWithDeviceRed:0.75 green:0.75 blue:0.75 alpha:1] CGColor];
     contentView.layer.borderWidth = 1;
 }
 
@@ -182,7 +182,7 @@
 // and will actually draw white text if the background is not white. It won't
 // mess with very, very dark gray though.
 - (NSColor *)blackColor {
-    return [NSColor colorWithCalibratedWhite:0.01 alpha:1];
+    return [NSColor colorWithDeviceWhite:0.01 alpha:1];
 }
 
 #pragma mark - NSTableViewDataSource and NSTableViewDelegate

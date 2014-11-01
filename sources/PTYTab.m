@@ -2209,10 +2209,10 @@ static NSString* FormatRect(NSRect r) {
     CGFloat r = (i >> 16) & 0xff;
     CGFloat g = (i >> 8) & 0xff;
     CGFloat b = (i >> 0) & 0xff;
-    return [NSColor colorWithCalibratedRed:r / 255.0
-                                     green:g / 255.0
-                                      blue:b / 255.0
-                                     alpha:1.0];
+    return [NSColor colorWithDeviceRed:r / 255.0
+                                 green:g / 255.0
+                                  blue:b / 255.0
+                                 alpha:1.0];
 }
 
 + (PTYTab *)tabWithArrangement:(NSDictionary*)arrangement

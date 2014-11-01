@@ -17,27 +17,27 @@ static const CGFloat kMargin = 8;
 @implementation iTermAnnouncementInternalView
 
 - (void)drawRect:(NSRect)dirtyRect {
-    NSColor *color1 = [NSColor colorWithCalibratedRed:241.0 / 255.0
-                                                green:255.0 / 255.0
-                                                 blue:187.0 / 255.0
-                                                alpha:1];
-    NSColor *color2 = [NSColor colorWithCalibratedRed:245.0 / 255.0
-                                                green:253.0 / 255.0
-                                                 blue:212.0 / 255.0
-                                                alpha:1];
+    NSColor *color1 = [NSColor colorWithDeviceRed:241.0 / 255.0
+                                            green:255.0 / 255.0
+                                             blue:187.0 / 255.0
+                                            alpha:1];
+    NSColor *color2 = [NSColor colorWithDeviceRed:245.0 / 255.0
+                                            green:253.0 / 255.0
+                                             blue:212.0 / 255.0
+                                            alpha:1];
     NSGradient *gradient =
             [[[NSGradient alloc] initWithStartingColor:color1 endingColor:color2] autorelease];
     [gradient drawInRect:self.bounds angle:90];
 
-    NSColor *lightBorderColor = [NSColor colorWithCalibratedRed:250.0 / 255.0
-                                                          green:253.0 / 255.0
-                                                           blue:240.0 / 255.0
-                                                          alpha:1];
+    NSColor *lightBorderColor = [NSColor colorWithDeviceRed:250.0 / 255.0
+                                                      green:253.0 / 255.0
+                                                       blue:240.0 / 255.0
+                                                      alpha:1];
 
-    NSColor *darkBorderColor = [NSColor colorWithCalibratedRed:220.0 / 255.0
-                                                         green:233.0 / 255.0
-                                                          blue:171.0 / 255.0
-                                                         alpha:1];
+    NSColor *darkBorderColor = [NSColor colorWithDeviceRed:220.0 / 255.0
+                                                     green:233.0 / 255.0
+                                                      blue:171.0 / 255.0
+                                                     alpha:1];
     [darkBorderColor set];
     NSRectFill(NSMakeRect(0, 0, self.bounds.size.width, 1));
 

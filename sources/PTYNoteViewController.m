@@ -271,7 +271,7 @@ static const CGFloat kBottomPadding = 3;
         [defaultBg greenComponent] * alpha + (1 - alpha) * highlightComponents[1],
         [defaultBg blueComponent] * alpha + (1 - alpha) * highlightComponents[2]
     };
-    self.noteView.backgroundColor = [NSColor colorWithCalibratedRed:components[0] green:components[1] blue:components[2] alpha:1];
+    self.noteView.backgroundColor = [NSColor colorWithDeviceRed:components[0] green:components[1] blue:components[2] alpha:1];
     [self.noteView setNeedsDisplay:YES];
     if (alpha < 1) {
         [self performSelector:@selector(updateBackgroundColor) withObject:nil afterDelay:1/30.0];

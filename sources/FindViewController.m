@@ -127,7 +127,7 @@ const CGFloat kEdgeWidth = 3;
         [path fill];
 
         if (!focused) {
-            [[NSColor colorWithCalibratedWhite:0.5 alpha:1] set];
+            [[NSColor colorWithDeviceWhite:0.5 alpha:1] set];
             [path setLineWidth:0.25];
             [path stroke];
 
@@ -136,20 +136,20 @@ const CGFloat kEdgeWidth = 3;
                                                    xRadius:4
                                                    yRadius:4];
             [path setLineWidth:0.25];
-            [[NSColor colorWithCalibratedWhite:0.7 alpha:1] set];
+            [[NSColor colorWithDeviceWhite:0.7 alpha:1] set];
             [path stroke];
         }
         [self drawInteriorWithFrame:originalFrame inView:controlView];
         return;
     }
-	NSColor *insetTopColor = [NSColor colorWithCalibratedWhite:1.0 alpha:0.0];
-	NSColor *insetBottomColor = [NSColor colorWithCalibratedWhite:1.0 alpha:0.35];
-	NSColor *strokeTopColor = [NSColor colorWithCalibratedWhite:0.240 alpha:1.0];
-	NSColor *strokeBottomColor = [NSColor colorWithCalibratedWhite:0.380 alpha:1.0];
+	NSColor *insetTopColor = [NSColor colorWithDeviceWhite:1.0 alpha:0.0];
+	NSColor *insetBottomColor = [NSColor colorWithDeviceWhite:1.0 alpha:0.35];
+	NSColor *strokeTopColor = [NSColor colorWithDeviceWhite:0.240 alpha:1.0];
+	NSColor *strokeBottomColor = [NSColor colorWithDeviceWhite:0.380 alpha:1.0];
 	
 	if (![[controlView window] isKeyWindow]) {
-		strokeTopColor = [NSColor colorWithCalibratedWhite:0.550 alpha:1.0];
-		strokeBottomColor = [NSColor colorWithCalibratedWhite:0.557 alpha:1.0];
+		strokeTopColor = [NSColor colorWithDeviceWhite:0.550 alpha:1.0];
+		strokeBottomColor = [NSColor colorWithDeviceWhite:0.557 alpha:1.0];
 	}
 	
 	NSRect strokeRect = cellFrame;
@@ -183,37 +183,37 @@ const CGFloat kEdgeWidth = 3;
     NSRect blueRect = NSMakeRect(0, 0, w * [self fraction] + kEdgeWidth, cellFrame.size.height);
     const CGFloat alpha = 0.3 * _alphaMultiplier;
     NSGradient *horizontalGradient =
-        [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedRed:204.0/255.0
-                                                                             green:219.0/255.0
-                                                                              blue:233.0/255.0
-                                                                             alpha:alpha]
-                                       endingColor:[NSColor colorWithCalibratedRed:131.0/255.0
-                                                                             green:187.0/255.0
-                                                                              blue:239.0/255.0
-                                                                             alpha:alpha]] autorelease];
+        [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceRed:204.0/255.0
+                                                                         green:219.0/255.0
+                                                                          blue:233.0/255.0
+                                                                         alpha:alpha]
+                                       endingColor:[NSColor colorWithDeviceRed:131.0/255.0
+                                                                         green:187.0/255.0
+                                                                          blue:239.0/255.0
+                                                                         alpha:alpha]] autorelease];
     [horizontalGradient drawInRect:blueRect angle:0];
     
     NSGradient *verticalGradient =
-        [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedRed:0/255.0
-                                                                             green:0/255.0
-                                                                              blue:0/255.0
-                                                                             alpha:alpha]
-                                       endingColor:[NSColor colorWithCalibratedRed:10.0/255.0
-                                                                             green:13.0/255.0
-                                                                              blue:0/255.0
-                                                                             alpha:alpha]] autorelease];
+        [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceRed:0/255.0
+                                                                         green:0/255.0
+                                                                          blue:0/255.0
+                                                                         alpha:alpha]
+                                       endingColor:[NSColor colorWithDeviceRed:10.0/255.0
+                                                                         green:13.0/255.0
+                                                                          blue:0/255.0
+                                                                         alpha:alpha]] autorelease];
     [[NSGraphicsContext currentContext] setCompositingOperation:NSCompositePlusLighter];
     [verticalGradient drawInRect:blueRect angle:90];
     
     NSGradient *edgeGradient =
-        [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedRed:255/255.0
-                                                                             green:255/255.0
-                                                                              blue:255/255.0
-                                                                             alpha:0.0]
-                                       endingColor:[NSColor colorWithCalibratedRed:255.0/255.0
-                                                                             green:255.0/255.0
-                                                                              blue:255.0/255.0
-                                                                             alpha:1.0]] autorelease];
+        [[[NSGradient alloc] initWithStartingColor:[NSColor colorWithDeviceRed:255/255.0
+                                                                         green:255/255.0
+                                                                          blue:255/255.0
+                                                                         alpha:0.0]
+                                       endingColor:[NSColor colorWithDeviceRed:255.0/255.0
+                                                                         green:255.0/255.0
+                                                                          blue:255.0/255.0
+                                                                         alpha:1.0]] autorelease];
     [[NSGraphicsContext currentContext] setCompositingOperation:NSCompositeSourceOver];
     NSRect edgeRect = NSMakeRect(blueRect.size.width - kEdgeWidth, 0, kEdgeWidth, blueRect.size.height);
     [edgeGradient drawInRect:edgeRect angle:0];
@@ -226,7 +226,7 @@ const CGFloat kEdgeWidth = 3;
 	float innerShadowAlpha = 0.4;
 	if (![[controlView window] isKeyWindow])
 		innerShadowAlpha = 0.2;
-	[innerShadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:innerShadowAlpha]];
+	[innerShadow setShadowColor:[NSColor colorWithDeviceWhite:0.0 alpha:innerShadowAlpha]];
 	[innerShadow setShadowOffset:NSMakeSize(0, -1.0)];
 	[innerShadow setShadowBlurRadius:1.0];
 	[innerShadow set];

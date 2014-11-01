@@ -541,7 +541,7 @@
     [NSGraphicsContext saveGraphicsState];
     [[NSGraphicsContext currentContext] setShouldAntialias:NO];
 
-    [[NSColor colorWithCalibratedWhite:0.0 alpha:0.2] set];
+    [[NSColor colorWithDeviceWhite:0.0 alpha:0.2] set];
     NSRectFillUsingOperation(rect, NSCompositeSourceAtop);
 
     [[self bottomLineColorSelected:NO] set];
@@ -576,7 +576,7 @@
 - (void)fillPath:(NSBezierPath*)path {
     [[NSColor windowBackgroundColor] set];
     [path fill];
-    [[NSColor colorWithCalibratedWhite:0.0 alpha:0.2] set];
+    [[NSColor colorWithDeviceWhite:0.0 alpha:0.2] set];
     [path fill];
     [[NSColor darkGrayColor] set];
     [path stroke];

@@ -61,7 +61,7 @@
         rect.origin.y++;
         rect.size.width -= 2;
         rect.size.height -= 2;
-        [[NSColor colorWithCalibratedRed:0.270 green:0.545 blue:0.811 alpha:1] set];
+        [[NSColor colorWithDeviceRed:0.270 green:0.545 blue:0.811 alpha:1] set];
         NSRectFill(rect);
         
         [screenFrames addObject:[NSValue valueWithRect:rect]];

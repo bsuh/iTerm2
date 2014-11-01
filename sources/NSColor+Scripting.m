@@ -14,7 +14,7 @@ static const CGFloat kRGBColorCoefficient = 65535;
 
 - (NSAppleEventDescriptor *)scriptingRGBColorDescriptor {
     // Make it safe to access red, green, and blue components.
-    NSColor *theColor = [self colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    NSColor *theColor = [self colorUsingColorSpaceName:NSDeviceRGBColorSpace];
 
     // Convert self to a QuickDraw RGBColor
     RGBColor rgbColor = {
@@ -44,10 +44,10 @@ static const CGFloat kRGBColorCoefficient = 65535;
 
     // And turn it into a NSColor.
     RGBColor *rgbColor = (RGBColor *)data.bytes;
-    return [NSColor colorWithCalibratedRed:(CGFloat)rgbColor->red / kRGBColorCoefficient
-                                     green:(CGFloat)rgbColor->green / kRGBColorCoefficient
-                                      blue:(CGFloat)rgbColor->blue / kRGBColorCoefficient
-                                     alpha:1.0];
+    return [NSColor colorWithDeviceRed:(CGFloat)rgbColor->red / kRGBColorCoefficient
+                                 green:(CGFloat)rgbColor->green / kRGBColorCoefficient
+                                  blue:(CGFloat)rgbColor->blue / kRGBColorCoefficient
+                                 alpha:1.0];
 }
 
 @end

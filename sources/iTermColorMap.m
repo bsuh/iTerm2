@@ -104,7 +104,7 @@ const int kColorMapAnsiBrightModifier = 8;
         _backgroundGreen = [theColor greenComponent];
         _backgroundBlue = [theColor blueComponent];
     }
-    theColor = [theColor colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    theColor = [theColor colorUsingColorSpaceName:NSDeviceRGBColorSpace];
     _map[@(theKey)] = theColor;
     _mutedMap[@(theKey)] = [theColor colorMutedBy:_mutingAmount
                                           towards:_map[@(kColorMapBackground)]];
@@ -127,7 +127,7 @@ const int kColorMapAnsiBrightModifier = 8;
     } else {
         NSColor *result = _map[@(theKey)];
         if (!result) {
-            result = [NSColor colorWithCalibratedRed:1 green:0 blue:0 alpha:1];
+            result = [NSColor colorWithDeviceRed:1 green:0 blue:0 alpha:1];
         }
         return result;
     }

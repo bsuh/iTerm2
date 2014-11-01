@@ -27,7 +27,7 @@
 
 - (NSColor *)colorValueWithDefaultAlpha:(CGFloat)alpha {
     if ([self count] < 3) {
-        return [NSColor colorWithCalibratedRed:0.0 green:0.0 blue:0.0 alpha:1.0];
+        return [NSColor colorWithDeviceRed:0.0 green:0.0 blue:0.0 alpha:1.0];
     }
 
     NSNumber *alphaNumber = self[kEncodedColorDictionaryAlphaComponent];
@@ -40,12 +40,12 @@
                                             green:[[self objectForKey:kEncodedColorDictionaryGreenComponent] floatValue]
                                              blue:[[self objectForKey:kEncodedColorDictionaryBlueComponent] floatValue]
                                             alpha:alpha];
-        return [srgb colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+        return [srgb colorUsingColorSpaceName:NSDeviceRGBColorSpace];
     } else {
-        return [NSColor colorWithCalibratedRed:[[self objectForKey:kEncodedColorDictionaryRedComponent] floatValue]
-                                         green:[[self objectForKey:kEncodedColorDictionaryGreenComponent] floatValue]
-                                          blue:[[self objectForKey:kEncodedColorDictionaryBlueComponent] floatValue]
-                                         alpha:alpha];
+        return [NSColor colorWithDeviceRed:[[self objectForKey:kEncodedColorDictionaryRedComponent] floatValue]
+                                     green:[[self objectForKey:kEncodedColorDictionaryGreenComponent] floatValue]
+                                      blue:[[self objectForKey:kEncodedColorDictionaryBlueComponent] floatValue]
+                                     alpha:alpha];
     }
 }
 

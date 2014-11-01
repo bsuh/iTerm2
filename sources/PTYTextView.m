@@ -2139,7 +2139,7 @@ NSMutableArray* screens=0;
     double rc = ((double)((i + 0) % 100)) / 100;
     double gc = ((double)((i + 33) % 100)) / 100;
     double bc = ((double)((i + 66) % 100)) / 100;
-    [[NSColor colorWithCalibratedRed:rc green:gc blue:bc alpha:1] set];
+    [[NSColor colorWithDeviceRed:rc green:gc blue:bc alpha:1] set];
     NSRectFill(excessRect);
 #else
     [_delegate textViewDrawBackgroundImageInView:self
@@ -2164,7 +2164,7 @@ NSMutableArray* screens=0;
     double red = sin(it);
     double green = sin(it + 1*2*3.14/3);
     double blue = sin(it + 2*2*3.14/3);
-    NSColor* c = [NSColor colorWithCalibratedRed:red green:green blue:blue alpha:1];
+    NSColor* c = [NSColor colorWithDeviceRed:red green:green blue:blue alpha:1];
     [c set];
     NSRect r = rect;
     r.origin.y++;
@@ -6224,7 +6224,7 @@ static double EuclideanDistance(NSPoint p1, NSPoint p2) {
             if (theIndex < [matches length] && matchBytes[theIndex] & mask) {
                 CRunAttrsSetColor(&attrs,
                                   storage,
-                                  [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:1]);
+                                  [NSColor colorWithDeviceRed:0 green:0 blue:0 alpha:1]);
             }
         }
 
@@ -6807,7 +6807,7 @@ static double EuclideanDistance(NSPoint p1, NSPoint p2) {
         // it will be blended with the bg color.
 
         if (isMatch && !bgselected) {
-            aColor = [NSColor colorWithCalibratedRed:1 green:1 blue:0 alpha:1];
+            aColor = [NSColor colorWithDeviceRed:1 green:1 blue:0 alpha:1];
         } else if (bgselected) {
             aColor = [self selectionColorForCurrentFocus];
         } else {
@@ -7337,10 +7337,10 @@ static double EuclideanDistance(NSPoint p1, NSPoint p2) {
                 [findCursorView_ setNeedsDisplay:YES];
             }
         }
-        [[_colorMap dimmedColorForColor:[NSColor colorWithCalibratedRed:1.0
-                                                                  green:1.0
-                                                                   blue:0
-                                                                  alpha:1.0]] set];
+        [[_colorMap dimmedColorForColor:[NSColor colorWithDeviceRed:1.0
+                                                              green:1.0
+                                                               blue:0
+                                                              alpha:1.0]] set];
         NSRectFill(cursorFrame);
 
         return TRUE;
@@ -7535,7 +7535,7 @@ static double EuclideanDistance(NSPoint p1, NSPoint p2) {
                                                     colorMode:fgColorMode
                                                          bold:fgBold
                                                         faint:fgFaint
-                                                 isBackground:NO] colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+                                                 isBackground:NO] colorUsingColorSpaceName:NSDeviceRGBColorSpace];
             CGFloat fgBrightness = [proposedForeground perceivedBrightness];
             CGFloat bgBrightness = [bgColor perceivedBrightness];
             if (!frameOnly && fabs(fgBrightness - bgBrightness) <
@@ -7544,16 +7544,16 @@ static double EuclideanDistance(NSPoint p1, NSPoint p2) {
                 // white.
                 if (bgBrightness < 0.5) {
                     overrideColor =
-                    [_colorMap dimmedColorForColor:[NSColor colorWithCalibratedRed:1
-                                                                             green:1
-                                                                              blue:1
-                                                                             alpha:1]];
+                    [_colorMap dimmedColorForColor:[NSColor colorWithDeviceRed:1
+                                                                         green:1
+                                                                          blue:1
+                                                                         alpha:1]];
                 } else {
                     overrideColor =
-                    [_colorMap dimmedColorForColor:[NSColor colorWithCalibratedRed:0
-                                                                             green:0
-                                                                              blue:0
-                                                                             alpha:1]];
+                    [_colorMap dimmedColorForColor:[NSColor colorWithDeviceRed:0
+                                                                         green:0
+                                                                          blue:0
+                                                                         alpha:1]];
                 }
             }
             
@@ -7682,7 +7682,7 @@ static double EuclideanDistance(NSPoint p1, NSPoint p2) {
     if ([self _minimumDistanceOf:bgBrightness fromAnyValueIn:constraints] <
         [iTermAdvancedSettingsModel smartCursorColorBgThreshold]) {
         CGFloat b = [self _farthestValueFromAnyValueIn:constraints];
-        bgColor = [NSColor colorWithCalibratedRed:b green:b blue:b alpha:1];
+        bgColor = [NSColor colorWithDeviceRed:b green:b blue:b alpha:1];
     }
     return bgColor;
 }

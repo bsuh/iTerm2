@@ -301,7 +301,7 @@ const double GLOBAL_SEARCH_MARGIN = 10;
 
 
     NSShadow *dropShadow = [[[NSShadow alloc] init] autorelease];
-    [dropShadow setShadowColor:[NSColor colorWithCalibratedHue:0
+    [dropShadow setShadowColor:[NSColor colorWithDeviceHue:0
                                                     saturation:0
                                                     brightness:0.2
                                                          alpha:1]];

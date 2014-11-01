@@ -858,10 +858,10 @@ static const int kMaxScreenRows = 4096;
             g <= 255 &&
             b >= 0 &&
             b <= 255) {
-            NSColor* theColor = [NSColor colorWithCalibratedRed:((double)r)/255.0
-                                                          green:((double)g)/255.0
-                                                           blue:((double)b)/255.0
-                                                          alpha:1];
+            NSColor* theColor = [NSColor colorWithDeviceRed:((double)r)/255.0
+                                                      green:((double)g)/255.0
+                                                       blue:((double)b)/255.0
+                                                      alpha:1];
             *numberPtr = n;
             return theColor;
         }
@@ -1658,7 +1658,7 @@ static const int kMaxScreenRows = 4096;
                                                             green:colors[1]
                                                              blue:colors[2]
                                                             alpha:1];
-                        NSColor *theColor = [srgb colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+                        NSColor *theColor = [srgb colorUsingColorSpaceName:NSDeviceRGBColorSpace];
                         [delegate_ terminalSetColorTableEntryAtIndex:theIndex
                                                                color:theColor];
                     }

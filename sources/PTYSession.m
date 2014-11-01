@@ -1492,10 +1492,10 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
     screen_char_t savedFgColor = [_terminal foregroundColorCode];
     screen_char_t savedBgColor = [_terminal backgroundColorCode];
     // This color matches the color used in BrokenPipeDivider.png.
-    [_terminal setForeground24BitColor:[NSColor colorWithCalibratedRed:248.0/255.0
-                                                                 green:79.0/255.0
-                                                                  blue:27.0/255.0
-                                                                 alpha:1]];
+    [_terminal setForeground24BitColor:[NSColor colorWithDeviceRed:248.0/255.0
+                                                             green:79.0/255.0
+                                                              blue:27.0/255.0
+                                                             alpha:1]];
     [_terminal setBackgroundColor:ALTSEM_DEFAULT
                alternateSemantics:YES];
     NSString *message = @"Broken Pipe ";
@@ -5869,28 +5869,28 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
 
 - (void)screenSetTabColorRedComponentTo:(CGFloat)color {
     NSColor *curColor = [self tabColor];
-    [self setTabColor:[NSColor colorWithCalibratedRed:color
-                                                green:[curColor greenComponent]
-                                                 blue:[curColor blueComponent]
-                                                alpha:1]];
+    [self setTabColor:[NSColor colorWithDeviceRed:color
+                                            green:[curColor greenComponent]
+                                             blue:[curColor blueComponent]
+                                            alpha:1]];
     [[_tab parentWindow] updateTabColors];
 }
 
 - (void)screenSetTabColorGreenComponentTo:(CGFloat)color {
     NSColor *curColor = [self tabColor];
-    [self setTabColor:[NSColor colorWithCalibratedRed:[curColor redComponent]
-                                                green:color
-                                                 blue:[curColor blueComponent]
-                                                alpha:1]];
+    [self setTabColor:[NSColor colorWithDeviceRed:[curColor redComponent]
+                                            green:color
+                                             blue:[curColor blueComponent]
+                                            alpha:1]];
     [[_tab parentWindow] updateTabColors];
 }
 
 - (void)screenSetTabColorBlueComponentTo:(CGFloat)color {
     NSColor *curColor = [self tabColor];
-    [self setTabColor:[NSColor colorWithCalibratedRed:[curColor redComponent]
-                                                green:[curColor greenComponent]
-                                                 blue:color
-                                                alpha:1]];
+    [self setTabColor:[NSColor colorWithDeviceRed:[curColor redComponent]
+                                            green:[curColor greenComponent]
+                                             blue:color
+                                            alpha:1]];
     [[_tab parentWindow] updateTabColors];
 }
 

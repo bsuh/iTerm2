@@ -331,7 +331,7 @@
 - (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView
 {
     if(_isPlaceholder){
-        [[NSColor colorWithCalibratedWhite:0.0 alpha:0.2] set];
+        [[NSColor colorWithDeviceWhite:0.0 alpha:0.2] set];
         NSRectFillUsingOperation(cellFrame, NSCompositeSourceAtop);
         return;
     }

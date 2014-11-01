@@ -61,17 +61,17 @@ const CGFloat kDragAreaSize = 5;
 }
 
 - (NSColor *)defaultBackgroundColor {
-    return [NSColor colorWithCalibratedRed:252.0/255.0
-                                     green:250.0/255.0
-                                      blue:198.0/255.0
-                                     alpha:1];
+    return [NSColor colorWithDeviceRed:252.0/255.0
+                                 green:250.0/255.0
+                                  blue:198.0/255.0
+                                 alpha:1];
 }
 
 - (NSColor *)borderColor {
-    return [NSColor colorWithCalibratedRed:255.0/255.0
-                                     green:229.0/255.0
-                                      blue:114.0/255.0
-                                     alpha:0.95];
+    return [NSColor colorWithDeviceRed:255.0/255.0
+                                 green:229.0/255.0
+                                  blue:114.0/255.0
+                                 alpha:0.95];
 }
 
 static NSPoint FlipPoint(NSPoint p, CGFloat height) {

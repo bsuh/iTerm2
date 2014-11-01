@@ -115,7 +115,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect {
     if (cancelOnly_) {
-        [[NSColor colorWithCalibratedRed:0 green:0.5 blue:0 alpha:1] set];
+        [[NSColor colorWithDeviceRed:0 green:0.5 blue:0 alpha:1] set];
         NSRectFill(dirtyRect);
         
         NSString *theMessage;
@@ -157,7 +157,7 @@
                 break;
         }
         
-        [[NSColor colorWithCalibratedRed:0.5 green:0 blue:0 alpha:1] set];
+        [[NSColor colorWithDeviceRed:0.5 green:0 blue:0 alpha:1] set];
         NSRectFill(highlightRect);
 
         [[NSColor whiteColor] set];
