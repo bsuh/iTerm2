@@ -2985,7 +2985,7 @@ static NSTimeInterval kMinimumPartialLineTriggerCheckInterval = 0.5;
     _timeOfLastScheduling = now;
     _lastTimeout = timeout;
 
-    _updateTimer = [[NSTimer scheduledTimerWithTimeInterval:MAX(0, timeout - timeSinceLastUpdate)
+    _updateTimer = [[NSTimer scheduledTimerWithTimeInterval:timeout
                                                      target:self
                                                    selector:@selector(updateDisplay)
                                                    userInfo:[NSNumber numberWithFloat:(float)timeout]
