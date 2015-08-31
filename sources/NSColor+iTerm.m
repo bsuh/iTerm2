@@ -20,7 +20,7 @@ NSString *const kEncodedColorDictionaryBlueComponent = @"Blue Component";
 NSString *const kEncodedColorDictionaryAlphaComponent = @"Alpha Component";
 NSString *const kEncodedColorDictionaryColorSpace = @"Color Space";
 NSString *const kEncodedColorDictionarySRGBColorSpace = @"sRGB";
-NSString *const kEncodedColorDictionaryCalibratedColorSpace = @"Calibrated";
+NSString *const kEncodedColorDictionaryDeviceColorSpace = @"Device";
 
 CGFloat PerceivedBrightness(CGFloat r, CGFloat g, CGFloat b) {
     return (kRedComponentBrightness * r +
@@ -170,7 +170,7 @@ CGFloat PerceivedBrightness(CGFloat r, CGFloat g, CGFloat b) {
                                         green:g
                                          blue:b
                                         alpha:1];
-    return [srgb colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    return [srgb colorUsingColorSpaceName:NSDeviceRGBColorSpace];
 }
 
 + (void)getComponents:(CGFloat *)result
@@ -230,7 +230,7 @@ CGFloat PerceivedBrightness(CGFloat r, CGFloat g, CGFloat b) {
 }
 
 - (int)nearestIndexIntoAnsi256ColorTable {
-    NSColor *theColor = [self colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    NSColor *theColor = [self colorUsingColorSpaceName:NSDeviceRGBColorSpace];
     int r = 5 * [theColor redComponent];
     int g = 5 * [theColor greenComponent];
     int b = 5 * [theColor blueComponent];
@@ -250,14 +250,14 @@ CGFloat PerceivedBrightness(CGFloat r, CGFloat g, CGFloat b) {
     
     // Find a linear interpolation between kCenter and the requested color component
     // in proportion to 1- dimmingAmount.
-    return [NSColor colorWithCalibratedRed:(1 - dimmingAmount) * r + dimmingAmount * grayLevel
-                                     green:(1 - dimmingAmount) * g + dimmingAmount * grayLevel
-                                      blue:(1 - dimmingAmount) * b + dimmingAmount * grayLevel
-                                     alpha:alpha];
+    return [NSColor colorWithDeviceRed:(1 - dimmingAmount) * r + dimmingAmount * grayLevel
+                                 green:(1 - dimmingAmount) * g + dimmingAmount * grayLevel
+                                  blue:(1 - dimmingAmount) * b + dimmingAmount * grayLevel
+                                 alpha:alpha];
 }
 
 - (CGFloat)perceivedBrightness {
-    NSColor *safeColor = [self colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    NSColor *safeColor = [self colorUsingColorSpaceName:NSDeviceRGBColorSpace];
     return PerceivedBrightness([safeColor redComponent],
                                [safeColor greenComponent],
                                [safeColor blueComponent]);
@@ -268,10 +268,10 @@ CGFloat PerceivedBrightness(CGFloat r, CGFloat g, CGFloat b) {
 }
 
 - (NSDictionary *)dictionaryValue {
-    NSColor* color = [self colorUsingColorSpaceName:NSCalibratedRGBColorSpace];
+    NSColor* color = [self colorUsingColorSpaceName:NSDeviceRGBColorSpace];
     CGFloat red, green, blue, alpha;
     [color getRed:&red green:&green blue:&blue alpha:&alpha];
-    return @{ kEncodedColorDictionaryColorSpace: kEncodedColorDictionaryCalibratedColorSpace,
+    return @{ kEncodedColorDictionaryColorSpace: kEncodedColorDictionaryDeviceColorSpace,
               kEncodedColorDictionaryRedComponent: @(red),
               kEncodedColorDictionaryGreenComponent: @(green),
               kEncodedColorDictionaryBlueComponent: @(blue),
